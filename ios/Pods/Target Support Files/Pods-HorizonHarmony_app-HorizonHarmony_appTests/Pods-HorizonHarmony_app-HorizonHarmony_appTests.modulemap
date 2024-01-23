@@ -1,0 +1,6 @@
+module Pods_HorizonHarmony_app_HorizonHarmony_appTests {
+  umbrella header "Pods-HorizonHarmony_app-HorizonHarmony_appTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
