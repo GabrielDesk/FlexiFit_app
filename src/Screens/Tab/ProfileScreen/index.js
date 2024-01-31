@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
-const ProfileScreen = () => {
- return (
+export function ProfileScreen() {
+  return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to the Profile Screen!</Text>
       <Image
@@ -12,24 +12,22 @@ const ProfileScreen = () => {
         }}
       />
     </View>
- );
-};
+  );
+}
 
 const styles = StyleSheet.create({
- container: {
+  container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
- },
- title: {
+  },
+  title: {
     fontSize: 24,
     fontWeight: 'bold',
- },
- logo: {
+  },
+  logo: {
     width: 150,
     height: 150,
- },
+  },
 });
-
-export default ProfileScreen;

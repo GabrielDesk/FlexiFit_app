@@ -32,7 +32,7 @@ import {
 
 const { width } = Dimensions.get('window');
 
-export function HomeScreen() {
+export function NotificationScreen() {
   const [backgroundImagePB, setBackgroundImagePB] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [paramPageIndicator, setParamPageIndicator] = useState(1);
