@@ -133,7 +133,7 @@ const MyTabBar = ({ state, navigation }) => {
                   IconType={iconType}
                   IconName={iconName}
                   IconSize={isFocused ? 28 : 26}
-                  IconColor={COLORS.WHITE}
+                  IconColor={'#f1f1f1'}
                   IconStyle={{}}
                 />
               </View>

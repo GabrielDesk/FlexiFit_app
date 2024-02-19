@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   View,
   Text,
@@ -13,7 +13,9 @@ import {
   TouchableOpacity,
   PanGestureHandler,
   ScrollView,
+  FlatList,
 } from 'react-native-gesture-handler';
+import * as Animatable from 'react-native-animatable';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TypeIcon, VectorIcon } from '../../../utils/VectorIconsUtil';
 // import { useTheme } from '../../../context/ThemeContext';
@@ -32,167 +34,264 @@ import {
 
 const { width } = Dimensions.get('window');
 
-export function RecordsScreen() {
+export function RecordsScreen({ navigation }) {
   const [backgroundImagePB, setBackgroundImagePB] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [paramPageIndicator, setParamPageIndicator] = useState(1);
+  const [checkIconName, setCheckIconName] = useState('');
+  const [recordCardArrayProps, setRecordCardArrayProps] = useState([
+    {
+      id: 1,
+      image: require('../../../../assets/images/recordImages/record2.png'),
+      dateTitle: 'Segunda-feira',
+      description: 'aeróbico acompanhado de musculação superior',
+      cardStyles: {
+        bgColor: COLORS.ROXO_APP,
+      },
+      checkExercises: [
+        {
+          id: 1,
+          gymStation: 'Supino',
+          titleExercise: '3x 15 repetições braço',
+          checked: false,
+        },
+        {
+          id: 2,
+          gymStation: 'Supino superior',
+          titleExercise: '3x 15 repetições de quadril',
+          checked: false,
+        },
+      ],
+    },
+    {
+      id: 2,
+      image: require('../../../../assets/images/recordImages/record6.png'),
+      dateTitle: 'Terça-feira',
+      description: 'funcional leve de trapézio',
+      cardStyles: {
+        bgColor: COLORS.BLUE_BUTTON,
+      },
+      checkExercises: [
+        {
+          id: 1,
+          gymStation: 'Supino',
+          titleExercise: '3x 15 repetições braço',
+          checked: false,
+        },
+      ],
+    },
+    {
+      id: 3,
+      image: require('../../../../assets/images/recordImages/record9.png'),
+      dateTitle: 'Quarta-feira',
+      description: 'aeróbico acompanhado de musculação inferior',
+      cardStyles: {
+        bgColor: COLORS.CLEAR_GRAY,
+      },
+      checkExercises: [
+        {
+          id: 1,
+          gymStation: 'Supino',
+          titleExercise: '3x 15 repetições perna',
+          checked: false,
+        },
+      ],
+    },
+    {
+      id: 4,
+      image: require('../../../../assets/images/recordImages/record7.png'),
+      dateTitle: 'Quinta-feira',
+      description: 'aeróbico acompanhado de musculação inferior',
+      cardStyles: {
+        bgColor: COLORS.CLEAR_GRAY,
+      },
+      checkExercises: [
+        {
+          id: 1,
+          gymStation: 'Supino',
+          titleExercise: '3x 15 repetições perna',
+          checked: false,
+        },
+      ],
+    },
+  ]);
 
-  const productCard = (bgColor = COLORS.AMARELOESCURO_APP) => (
-    <View
-      style={{
-        height: 150,
-        width: 350,
-        borderRadius: 20,
-        flexDirection: 'row',
-        padding: '2%',
-        backgroundColor: bgColor,
-        marginHorizontal: 5,
-      }}
-    >
+  const flatListRef = useRef();
+
+  function handleCheckExercises(cardId, exerciseId) {
+    setRecordCardArrayProps((currentProps) =>
+      currentProps.map((card) => {
+        if (card.id === cardId) {
+          return {
+            ...card,
+            checkExercises: card.checkExercises.map((exercise) => {
+              if (exercise.id === exerciseId) {
+                return { ...exercise, checked: !exercise.checked };
+              }
+              return exercise;
+            }),
+          };
+        }
+        return card;
+      }),
+    );
+  }
+
+  const onViewableItemsChanged = useCallback(({ viewableItems }) => {
+    // Atualiza o currentIndex para o item no centro
+    if (viewableItems.length > 0) {
+      const centerItem = viewableItems[0]; // Ajuste conforme necessário para encontrar o item central
+      setCurrentIndex(centerItem.index);
+    }
+  }, []);
+
+  const viewabilityConfig = useRef({
+    itemVisiblePercentThreshold: 50, // Ajuste conforme necessário
+  }).current;
+
+  const recordCardContent = (item) => {
+    return (
       <View
         style={{
-          width: '60%',
-          height: 150,
-          justifyContent: 'space-evenly',
+          padding: '3%',
+          height: 530,
+          borderRadius: 20,
+          width: width - 45,
+          backgroundColor: item.cardStyles.bgColor,
+          // shadowColor: '#e0e0e0',
+          // shadowOffset: {
+          //   width: 0,
+          //   height: 10,
+          // },
+          // shadowOpacity: 0.53,
+          // shadowRadius: 13.97,
+          // elevation: 21,
         }}
       >
-        <Text
+        <View
           style={{
-            fontFamily: FONTS.Poppins_Bold,
-            fontSize: 20,
-            color: COLORS.BLACK,
-          }}
-        >
-          Minhas Fichas
-        </Text>
-
-        <Text
-          style={{
-            fontFamily: FONTS.Poppins_SemiBold,
-            fontSize: 14,
-            color: COLORS.BLACK,
-          }}
-        >
-          Acompanhe suas fichas com apenas um toque
-        </Text>
-
-        <TouchableOpacity
-          style={{
-            width: '70%',
-            height: '47%',
-            padding: '3%',
-            backgroundColor: COLORS.BLACK_BUTTON_APP,
+            flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'center',
-            marginTop: 15,
-            borderRadius: 20,
+
+            // backgroundColor: COLORS.AMARELOESCURO_APP,
           }}
         >
-          <Text
+          <Image
+            source={item.image}
             style={{
-              fontFamily: FONTS.Poppins_Bold,
-              // fontSize: 18,
-              color: COLORS.WHITE,
+              width: 200,
+              height: 200,
+              // backgroundColor: COLORS.AMARELO_APP,
+            }}
+            resizeMode="cover"
+          />
+
+          <View
+            style={{
+              alignItems: 'center',
+              // justifyContent: 'space-around',
             }}
           >
-            Ver Mais
-          </Text>
-        </TouchableOpacity>
-      </View>
-
-      <View
-        style={{
-          width: '40%',
-          height: 'auto',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Image
-          source={{
-            uri: 'https://i.imgur.com/2uymtgx.png',
-          }}
-          style={{ width: 130, height: 130 }}
-        />
-      </View>
-    </View>
-  );
-
-  const BarChartCard = () => {
-    // Array de objetos com altura das barras e os meses
-    const bars = [
-      { height: 70, month: 'Jan' },
-      { height: 80, month: 'Fev' },
-      { height: 60, month: 'Mar' },
-      { height: 90, month: 'Abr' },
-      { height: 50, month: 'Mai' },
-      { height: 100, month: 'Jun' },
-      { height: 40, month: 'Jul' },
-    ];
-
-    // Alturas para os labels 'Médio', 'Bom' e 'Muito Bom'
-    const labels = [
-      { labelText: 'Alto', labelValues: 160 },
-      { labelText: 'Médio', labelValues: 140 },
-      { labelText: 'Baixo', labelValues: 120 },
-      { labelText: 'Base', labelValues: 100 },
-    ];
-
-    return (
-      <View style={styles.chartCard}>
-        <View style={styles.labelsContainer}>
-          {labels.flatMap((labelItem) => (
-            <>
-              <View style={styles.tagsBarIndicatorsContainer}>
-                {/* <Text key={label} style={[styles.label, { bottom: `${yHeight}%` }]}> */}
-                <Text style={styles.label}>{labelItem.labelValues}</Text>
-              </View>
-            </>
-          ))}
-        </View>
-
-        <View style={styles.barContainer}>
-          {bars.map(({ height, month }, index) => (
-            <View key={index} style={styles.barWrapper}>
-              {/* {' '} */}
-              {/* Linha tracejada à esquerda */}
-              <View style={styles.barIndicatorsContainer}>
-                {/* {index > 0 && <View style={styles.dashedLine} />} */}
-                <LinearGradient
-                  colors={[COLORS.WHITE, COLORS.ROXO_APP]}
-                  start={{ x: 0, y: 1.5 }}
-                  end={{ x: 0, y: 0 }}
-                  style={[styles.bar, { height: `${height}%` }]}
-                />
-              </View>
-              <Text style={styles.barText}>{month}</Text>
-              {/* {' '} */}
-              {/* Linha tracejada à direita */}
-            </View>
-          ))}
-        </View>
-
-        <View style={styles.actionButtonSeeMoreContainer}>
-          <View style={styles.actionButtonSeeMoreContent}>
             <Text
               style={{
-                fontFamily: FONTS.Poppins_Medium,
-                fontSize: 10,
-                color: COLORS.ROXO_APP,
+                color: COLORS.BRANCO_APP,
+                fontSize: 18,
+                fontFamily: FONTS.Poppins_Bold,
               }}
             >
-              Ver Mais
+              {item.dateTitle}
             </Text>
-            <VectorIcon
-              IconName="add-circle-outline"
-              IconType={TypeIcon.IONICONS}
-              IconSize={22}
-            />
+            <Text
+              style={{
+                color: COLORS.BRANCO_APP,
+                fontSize: 16,
+                fontFamily: FONTS.Poppins_Medium,
+                textAlign: 'center',
+              }}
+            >
+              {item.description}
+            </Text>
           </View>
+        </View>
+        <View
+          style={{
+            marginTop: '15%',
+            padding: '3%',
+            // alignItems: 'baseline',
+            justifyContent: 'flex-start',
+          }}
+        >
+          {checkItemsComponent(item.checkExercises, item.id)}
         </View>
       </View>
     );
   };
+
+  const checkItemsComponent = (checksItem, cardId) => {
+    return (
+      <View style={{ width: '100%', height: '100%', flexDirection: 'column' }}>
+        {checksItem.map((item, index) => (
+          <View
+            key={index}
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginBottom: '3%',
+            }}
+          >
+            <TouchableOpacity
+              onPress={() => handleCheckExercises(cardId, item.id)}
+            >
+              <VectorIcon
+                IconName={
+                  item.checked ? 'checkmark-circle' : 'checkmark-circle-outline'
+                }
+                IconType={TypeIcon.IONICONS}
+                IconSize={24}
+                IconColor={COLORS.BRANCO_APP}
+                IconStyle={{ marginBottom: '20%', marginHorizontal: '1%' }}
+              />
+            </TouchableOpacity>
+            <View>
+              <Text
+                style={{
+                  fontFamily: FONTS.Poppins_Bold,
+                  fontSize: 16,
+                  color: COLORS.BRANCO_APP,
+                }}
+              >
+                {item.titleExercise}
+              </Text>
+              <Text
+                style={{
+                  fontFamily: FONTS.Poppins_BoldItalic,
+                  fontSize: 12,
+                  color: COLORS.BRANCO_APP,
+                  marginBottom: 10,
+                }}
+              >
+                {item.gymStation}
+              </Text>
+            </View>
+          </View>
+        ))}
+      </View>
+    );
+  };
+  const renderIndicator = () => (
+    <View style={styles.indicatorContainer}>
+      {recordCardArrayProps.map((item, index) => (
+        <Animatable.View
+          animation="slideInLeft"
+          key={index}
+          style={[
+            styles.indicator,
+            currentIndex == index && styles.activeIndicator,
+          ]}
+        />
+      ))}
+    </View>
+  );
 
   return (
     <SafeAreaView style={styles.container}>
@@ -205,225 +304,89 @@ export function RecordsScreen() {
         }}
       >
         {/* header information */}
-        <View style={{ height: 90, flexDirection: 'row' }}>
-          {/* name */}
-          <View style={{ width: '80%' }}>
+        <View
+          style={{
+            // flex: 1,
+            flexDirection: 'row',
+            // backgroundColor: COLORS.CINZACLARO_APP,
+          }}
+        >
+          {/* back button icon */}
+          <View
+            style={{
+              width: '10%',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <VectorIcon
+                IconName="arrow-back-ios"
+                IconType={TypeIcon.MATERIAL_ICONS}
+                IconSize={24}
+                IconColor={COLORS.BLACK}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <View style={{ width: '90%', alignItems: 'center' }}>
             <Text
               style={{
                 fontFamily: FONTS.Poppins_Black_Italic,
                 fontSize: 24,
               }}
             >
-              Hey Rahul
+              Minhas Fichas
             </Text>
-
-            <Text
-              style={{
-                fontFamily: FONTS.Poppins_MediumItalic,
-                fontSize: 14,
-              }}
-            >
-              Bora treinar!
-            </Text>
-          </View>
-
-          <View style={{ width: '20%' }}>
-            <Image
-              source={{
-                uri: 'https://www.thesouthafrican.com/wp-content/uploads/2019/02/d6393b36-thispersondoesnotexist-800x529.jpg',
-              }}
-              style={{ width: 50, height: 50, borderRadius: 100 }}
-              resizeMode="cover"
-            />
           </View>
         </View>
 
-        {/* cards container */}
-        <View>
-          {/* ScanQR */}
+        <View
+          style={{
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          {/* card container */}
+          <FlatList
+            ref={flatListRef}
+            data={recordCardArrayProps}
+            renderItem={({ item }) => recordCardContent(item)}
+            horizontal
+            pagingEnabled
+            showsHorizontalScrollIndicator={false}
+            onViewableItemsChanged={onViewableItemsChanged}
+            viewabilityConfig={viewabilityConfig}
+            keyExtractor={(item, index) => index.toString()}
+            contentContainerStyle={{
+              alignItems: 'center',
+              paddingHorizontal: 0,
+              gap: 10,
+              marginVertical: '5%',
+            }}
+          />
+          {/* indicator card */}
           <View
             style={{
-              height: 150,
-              width: '100%',
+              width: '90%',
               borderRadius: 20,
-              flexDirection: 'row',
-              padding: '4%',
-              backgroundColor: COLORS.ROXO2_APP,
+              justifyContent: 'center',
+              alignItems: 'center',
+
+              // backgroundColor: COLORS.ROXO_APP,
             }}
           >
-            <View
+            {renderIndicator()}
+
+            {/* <Text
               style={{
-                width: '60%',
-                height: 150,
-                justifyContent: 'space-evenly',
+                fontFamily: FONTS.Poppins_Medium,
+                fontSize: 14,
+                color: COLORS.ROXO_APP,
               }}
             >
-              <Text
-                style={{
-                  fontFamily: FONTS.Poppins_Bold,
-                  fontSize: 18,
-                  color: COLORS.WHITE,
-                }}
-              >
-                Escaneie o QRCode para entrar à academia.
-              </Text>
-
-              <TouchableOpacity
-                style={{
-                  width: '70%',
-                  height: '47%',
-                  padding: '3%',
-                  backgroundColor: COLORS.BLUE_BUTTON,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginTop: 15,
-                  borderRadius: 20,
-                }}
-              >
-                <Text
-                  style={{
-                    fontFamily: FONTS.Poppins_Bold,
-                    // fontSize: 18,
-                    color: COLORS.WHITE,
-                  }}
-                >
-                  Ler QRCode
-                </Text>
-              </TouchableOpacity>
-            </View>
-
-            <View
-              style={{
-                width: '40%',
-                height: 'auto',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Image
-                source={{
-                  uri: 'https://i.imgur.com/tlfeMKB.png',
-                }}
-                style={{ width: 200, height: 200 }}
-              />
-            </View>
-          </View>
-
-          {/* gym features/products */}
-          <View
-            style={{
-              marginTop: '10%',
-            }}
-          >
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              style={{}}
-            >
-              {productCard()}
-              {productCard((bgColor = COLORS.BLUE_BUTTON))}
-            </ScrollView>
-
-            <View
-              style={{
-                width: '100%',
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-              }}
-            >
-              <View
-                style={{
-                  height: 35,
-                  width: 150,
-                  borderRadius: 20,
-                  flexDirection: 'row',
-                  padding: '2%',
-                  margin: '2%',
-                  backgroundColor: COLORS.BLUE_BUTTON,
-                  marginTop: 10,
-                  paddingHorizontal: '5%',
-                  justifyContent: 'center',
-                }}
-              >
-                <View
-                  style={{
-                    width: '100%',
-                    // height: 150,
-                    flexDirection: 'row',
-                    gap: 5,
-                    // justifyContent: 'space-around',
-                    // justifyContent: 'center',
-                  }}
-                >
-                  <Text
-                    style={{
-                      fontFamily: FONTS.Poppins_Bold,
-                      fontSize: 14,
-                      color: COLORS.BLACK,
-                    }}
-                  >
-                    Dia:
-                  </Text>
-
-                  <Text
-                    style={{
-                      fontFamily: FONTS.Poppins_Bold,
-                      fontSize: 14,
-                      color: COLORS.BLACK,
-                    }}
-                  >
-                    {getFormattedDate()}
-                  </Text>
-                </View>
-              </View>
-
-              <View
-                style={{
-                  height: 35,
-                  width: 150,
-                  borderRadius: 20,
-                  flexDirection: 'row',
-                  padding: '2%',
-                  margin: '2%',
-                  backgroundColor: COLORS.BLUE_BUTTON,
-                  marginTop: 10,
-                  paddingHorizontal: '5%',
-                  justifyContent: 'center',
-                }}
-              >
-                <View
-                  style={{
-                    width: '100%',
-                    // height: 150,
-                    flexDirection: 'row',
-                    gap: 5,
-                    justifyContent: 'center',
-                  }}
-                >
-                  <Text
-                    style={{
-                      fontFamily: FONTS.Poppins_Bold,
-                      fontSize: 14,
-                      color: COLORS.BLACK,
-                    }}
-                  >
-                    {getDayAtWeek()}
-                  </Text>
-                </View>
-              </View>
-            </View>
-          </View>
-
-          {/* Info chart */}
-          <View
-            style={
-              {
-                // height: '100%',
-              }
-            }
-          >
-            {BarChartCard()}
+              indicator card component
+            </Text> */}
           </View>
         </View>
       </View>
@@ -557,5 +520,35 @@ const styles = StyleSheet.create({
     // width: '20%',
     gap: 10,
     flexDirection: 'row',
+  },
+  // container: {
+  //   flex: 1,
+  // },
+  indicatorContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  indicator: {
+    height: 10,
+    width: 10,
+    backgroundColor: '#e0e0e0',
+    borderRadius: 5,
+    margin: 5,
+  },
+  activeIndicator: {
+    backgroundColor: COLORS.ROXO_APP,
+  },
+  cardStyle: {
+    width: width, // Largura total da tela
+    height: 530,
+    borderRadius: 20,
+    padding: '3%', // Ajuste o padding interno conforme necessário
+    backgroundColor: '#FFF', // Substitua pela sua cor de fundo
+    shadowColor: '#e0e0e0',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.53,
+    shadowRadius: 13.97,
+    elevation: 21,
   },
 });
