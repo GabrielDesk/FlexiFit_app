@@ -61,6 +61,24 @@ export function RecordsScreen({ navigation }) {
           titleExercise: '3x 15 repetições de quadril',
           checked: false,
         },
+        {
+          id: 3,
+          gymStation: 'Supino superior',
+          titleExercise: '3x 15 repetições de quadril',
+          checked: false,
+        },
+        {
+          id: 4,
+          gymStation: 'Supino superior',
+          titleExercise: '3x 15  quadril',
+          checked: false,
+        },
+        {
+          id: 5,
+          gymStation: 'Supino superior',
+          titleExercise: '3x 15 repetições de ',
+          checked: false,
+        },
       ],
     },
     {
@@ -86,7 +104,7 @@ export function RecordsScreen({ navigation }) {
       dateTitle: 'Quarta-feira',
       description: 'aeróbico acompanhado de musculação inferior',
       cardStyles: {
-        bgColor: COLORS.CLEAR_GRAY,
+        bgColor: COLORS.VERDE_APP,
       },
       checkExercises: [
         {
@@ -154,7 +172,8 @@ export function RecordsScreen({ navigation }) {
       <View
         style={{
           padding: '3%',
-          height: 530,
+          maxHeight: 590,
+          minHeight: 590,
           borderRadius: 20,
           width: width - 45,
           backgroundColor: item.cardStyles.bgColor,
@@ -213,16 +232,22 @@ export function RecordsScreen({ navigation }) {
             </Text>
           </View>
         </View>
-        <View
+        <ScrollView
+          showsVerticalScrollIndicator={false}
           style={{
-            marginTop: '15%',
+            marginTop: '5%',
             padding: '3%',
             // alignItems: 'baseline',
-            justifyContent: 'flex-start',
           }}
         >
-          {checkItemsComponent(item.checkExercises, item.id)}
-        </View>
+          <View
+            style={{
+              justifyContent: 'flex-start',
+            }}
+          >
+            {checkItemsComponent(item.checkExercises, item.id)}
+          </View>
+        </ScrollView>
       </View>
     );
   };
@@ -247,7 +272,7 @@ export function RecordsScreen({ navigation }) {
                   item.checked ? 'checkmark-circle' : 'checkmark-circle-outline'
                 }
                 IconType={TypeIcon.IONICONS}
-                IconSize={24}
+                IconSize={22}
                 IconColor={COLORS.BRANCO_APP}
                 IconStyle={{ marginBottom: '20%', marginHorizontal: '1%' }}
               />
@@ -256,7 +281,7 @@ export function RecordsScreen({ navigation }) {
               <Text
                 style={{
                   fontFamily: FONTS.Poppins_Bold,
-                  fontSize: 16,
+                  fontSize: 14,
                   color: COLORS.BRANCO_APP,
                 }}
               >
@@ -265,7 +290,7 @@ export function RecordsScreen({ navigation }) {
               <Text
                 style={{
                   fontFamily: FONTS.Poppins_BoldItalic,
-                  fontSize: 12,
+                  fontSize: 10,
                   color: COLORS.BRANCO_APP,
                   marginBottom: 10,
                 }}
@@ -341,44 +366,50 @@ export function RecordsScreen({ navigation }) {
           </View>
         </View>
 
-        <View
+        <ScrollView
+          vertical
           style={{
-            flexDirection: 'column',
-            alignItems: 'center',
+            height: 10000080,
           }}
         >
-          {/* card container */}
-          <FlatList
-            ref={flatListRef}
-            data={recordCardArrayProps}
-            renderItem={({ item }) => recordCardContent(item)}
-            horizontal
-            pagingEnabled
-            showsHorizontalScrollIndicator={false}
-            onViewableItemsChanged={onViewableItemsChanged}
-            viewabilityConfig={viewabilityConfig}
-            keyExtractor={(item, index) => index.toString()}
-            contentContainerStyle={{
-              alignItems: 'center',
-              paddingHorizontal: 0,
-              gap: 10,
-              marginVertical: '5%',
-            }}
-          />
-          {/* indicator card */}
           <View
             style={{
-              width: '90%',
-              borderRadius: 20,
-              justifyContent: 'center',
+              flexDirection: 'column',
               alignItems: 'center',
-
-              // backgroundColor: COLORS.ROXO_APP,
             }}
           >
-            {renderIndicator()}
+            {/* card container */}
+            <FlatList
+              ref={flatListRef}
+              data={recordCardArrayProps}
+              renderItem={({ item }) => recordCardContent(item)}
+              horizontal
+              pagingEnabled
+              showsHorizontalScrollIndicator={false}
+              onViewableItemsChanged={onViewableItemsChanged}
+              viewabilityConfig={viewabilityConfig}
+              keyExtractor={(item, index) => index.toString()}
+              contentContainerStyle={{
+                alignItems: 'center',
+                paddingHorizontal: 0,
+                gap: 10,
+                marginVertical: '5%',
+              }}
+            />
+            {/* indicator card */}
+            <View
+              style={{
+                width: '90%',
+                borderRadius: 20,
+                justifyContent: 'center',
+                alignItems: 'center',
 
-            {/* <Text
+                // backgroundColor: COLORS.ROXO_APP,
+              }}
+            >
+              {renderIndicator()}
+
+              {/* <Text
               style={{
                 fontFamily: FONTS.Poppins_Medium,
                 fontSize: 14,
@@ -387,8 +418,27 @@ export function RecordsScreen({ navigation }) {
             >
               indicator card component
             </Text> */}
+            </View>
+            <View
+              style={{
+                width: '100%',
+                padding: '4%',
+              }}
+            >
+              <Text
+                style={{
+                  fontFamily: FONTS.Poppins_Bold,
+                  fontSize: 11,
+                  color: COLORS.BLACK,
+                  textAlign: 'center',
+                }}
+              >
+                *Em caso de duvida sobre as repetições e o método, contate seu
+                treinador ou supervisor físico
+              </Text>
+            </View>
           </View>
-        </View>
+        </ScrollView>
       </View>
     </SafeAreaView>
   );

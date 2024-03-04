@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface HorizonHarmony_appTests : XCTestCase
+@interface HorizonHarmonyappTests : XCTestCase
 
 @end
 
-@implementation HorizonHarmony_appTests
+@implementation HorizonHarmonyappTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {

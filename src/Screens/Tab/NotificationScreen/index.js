@@ -13,6 +13,7 @@ import {
   TouchableOpacity,
   PanGestureHandler,
   ScrollView,
+  FlatList,
 } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TypeIcon, VectorIcon } from '../../../utils/VectorIconsUtil';
@@ -26,171 +27,222 @@ import LinearGradient from 'react-native-linear-gradient';
 import { FONTS } from '../../../constants/Fonts';
 import {
   getDateUtcNow,
+  getDateUtcNowBrazil,
   getDayAtWeek,
   getFormattedDate,
 } from '../../../utils/getDateInfo';
+import { getAdapter } from 'axios';
 
 const { width } = Dimensions.get('window');
 
 export function NotificationScreen() {
   const [backgroundImagePB, setBackgroundImagePB] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [paramPageIndicator, setParamPageIndicator] = useState(1);
+  const [notificationData, setNotificationData] = useState([
+    {
+      id: 0,
+      titleDescription: 'Sua fatura foi paga e aprovada com sucesso!.',
+      dateInfo: '4h',
+      iconName: 'checkmark-done',
+      infoColor: COLORS.VERDE_APP,
+      actFunction: () => null,
+    },
+    {
+      id: 1,
+      titleDescription:
+        'Sua fatura atual está prestes a vencer, pague pelo aplicativo ou entre em contato com a academia.',
+      dateInfo: '2d',
+      iconName: 'information-circle-outline',
+      infoColor: COLORS.VERMELHO_APP,
+      bgColor: COLORS.BLUE_BUTTON,
+      actFunction: () => null,
+    },
+    {
+      id: 2,
+      titleDescription: 'Novas aulas de yoga adicionadas ao calendário.',
+      dateInfo: '1d',
+      iconName: 'calendar-outline',
+      infoColor: COLORS.BRANCO_APP,
+      actFunction: () => alert('Aulas de Yoga!'),
+    },
+    {
+      id: 3,
+      titleDescription:
+        'Promoção especial disponível! Confira as novas ofertas na loja.',
+      dateInfo: '3d',
+      iconName: 'pricetags-outline',
+      infoColor: COLORS.AMARELO_APP,
+      actFunction: () => alert('Promoções!'),
+    },
+    // Novos modelos adicionados
+    {
+      id: 4,
+      titleDescription: 'Lembrete: Avaliação física agendada para amanhã.',
+      dateInfo: '5h',
+      iconName: 'body-outline',
+      infoColor: COLORS.CLEAR_GRAY,
+      actFunction: () => alert('Avaliação Física!'),
+    },
+    {
+      id: 5,
+      titleDescription:
+        'Atualização importante! Leia as últimas notícias no nosso blog.',
+      dateInfo: '6d',
+      iconName: 'newspaper-outline',
+      infoColor: COLORS.VERDE_APP,
+      actFunction: () => alert('Notícias!'),
+    },
+    {
+      id: 6,
+      titleDescription:
+        'Seu treino personalizado foi atualizado. Confira as novidades!',
+      dateInfo: '1d',
+      iconName: 'fitness-outline',
+      infoColor: COLORS.BLUE_BUTTON,
+      actFunction: () => alert('Treino Atualizado!'),
+    },
+    {
+      id: 7,
+      titleDescription:
+        'Feedback do treinador disponível para a sua última sessão.',
+      dateInfo: '3d',
+      iconName: 'thumbs-up-outline',
+      infoColor: COLORS.VERDE_APP,
+      actFunction: () => alert('Feedback do Treinador!'),
+    },
+    {
+      id: 8,
+      titleDescription: 'Nova mensagem do suporte. Toque para ler.',
+      dateInfo: '2h',
+      iconName: 'chatbubbles-outline',
+      infoColor: COLORS.AMARELO_APP,
+      actFunction: () => alert('Nova Mensagem do Suporte!'),
+    },
+    {
+      id: 9,
+      titleDescription:
+        'Evento especial esta semana: Workshop de nutrição. Inscreva-se!',
+      dateInfo: '4d',
+      iconName: 'nutrition-outline',
+      infoColor: COLORS.VERMELHO_APP,
+      bgColor: COLORS.BLUE_BUTTON,
+      actFunction: () => alert('Workshop de Nutrição!'),
+    },
+  ]);
 
-  const productCard = (bgColor = COLORS.AMARELOESCURO_APP) => (
-    <View
-      style={{
-        height: 150,
-        width: 350,
-        borderRadius: 20,
-        flexDirection: 'row',
-        padding: '2%',
-        backgroundColor: bgColor,
-        marginHorizontal: 5,
-      }}
-    >
-      <View
-        style={{
-          width: '60%',
-          height: 150,
-          justifyContent: 'space-evenly',
-        }}
-      >
-        <Text
-          style={{
-            fontFamily: FONTS.Poppins_Bold,
-            fontSize: 20,
-            color: COLORS.BLACK,
-          }}
-        >
-          Minhas Fichas
-        </Text>
-
-        <Text
-          style={{
-            fontFamily: FONTS.Poppins_SemiBold,
-            fontSize: 14,
-            color: COLORS.BLACK,
-          }}
-        >
-          Acompanhe suas fichas com apenas um toque
-        </Text>
-
-        <TouchableOpacity
-          style={{
-            width: '70%',
-            height: '47%',
-            padding: '3%',
-            backgroundColor: COLORS.BLACK_BUTTON_APP,
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginTop: 15,
-            borderRadius: 20,
-          }}
-        >
-          <Text
-            style={{
-              fontFamily: FONTS.Poppins_Bold,
-              // fontSize: 18,
-              color: COLORS.WHITE,
-            }}
-          >
-            Ver Mais
-          </Text>
-        </TouchableOpacity>
-      </View>
-
-      <View
-        style={{
-          width: '40%',
-          height: 'auto',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Image
-          source={{
-            uri: 'https://i.imgur.com/2uymtgx.png',
-          }}
-          style={{ width: 130, height: 130 }}
-        />
-      </View>
-    </View>
-  );
-
-  const BarChartCard = () => {
-    // Array de objetos com altura das barras e os meses
-    const bars = [
-      { height: 70, month: 'Jan' },
-      { height: 80, month: 'Fev' },
-      { height: 60, month: 'Mar' },
-      { height: 90, month: 'Abr' },
-      { height: 50, month: 'Mai' },
-      { height: 100, month: 'Jun' },
-      { height: 40, month: 'Jul' },
-    ];
-
-    // Alturas para os labels 'Médio', 'Bom' e 'Muito Bom'
-    const labels = [
-      { labelText: 'Alto', labelValues: 160 },
-      { labelText: 'Médio', labelValues: 140 },
-      { labelText: 'Baixo', labelValues: 120 },
-      { labelText: 'Base', labelValues: 100 },
-    ];
+  const renderNotificationCard = ({ item }) => {
+    console.log({ item });
 
     return (
-      <View style={styles.chartCard}>
-        <View style={styles.labelsContainer}>
-          {labels.flatMap((labelItem) => (
-            <>
-              <View style={styles.tagsBarIndicatorsContainer}>
-                {/* <Text key={label} style={[styles.label, { bottom: `${yHeight}%` }]}> */}
-                <Text style={styles.label}>{labelItem.labelValues}</Text>
-              </View>
-            </>
-          ))}
-        </View>
+      <>
+        {/* Embleem indicator */}
+        <View
+          style={{
+            minHeight: 90,
+            maxHeight: 90,
+            width: '100%',
+            borderRadius: 20,
+            flexDirection: 'row',
+            padding: '2%',
+            backgroundColor: COLORS.ROXO2_APP,
+          }}
+        >
+          <View
+            style={{
+              width: '15%',
+              height: 'auto',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            {/* <Image
+            source={{
+              uri: 'https://i.imgur.com/tlfeMKB.png',
+            }}
+            style={{ width: 200, height: 200 }}
+          /> */}
 
-        <View style={styles.barContainer}>
-          {bars.map(({ height, month }, index) => (
-            <View key={index} style={styles.barWrapper}>
-              {/* {' '} */}
-              {/* Linha tracejada à esquerda */}
-              <View style={styles.barIndicatorsContainer}>
-                {/* {index > 0 && <View style={styles.dashedLine} />} */}
-                <LinearGradient
-                  colors={[COLORS.WHITE, COLORS.ROXO_APP]}
-                  start={{ x: 0, y: 1.5 }}
-                  end={{ x: 0, y: 0 }}
-                  style={[styles.bar, { height: `${height}%` }]}
-                />
-              </View>
-              <Text style={styles.barText}>{month}</Text>
-              {/* {' '} */}
-              {/* Linha tracejada à direita */}
-            </View>
-          ))}
-        </View>
-
-        <View style={styles.actionButtonSeeMoreContainer}>
-          <View style={styles.actionButtonSeeMoreContent}>
-            <Text
-              style={{
-                fontFamily: FONTS.Poppins_Medium,
-                fontSize: 10,
-                color: COLORS.ROXO_APP,
-              }}
-            >
-              Ver Mais
-            </Text>
             <VectorIcon
-              IconName="add-circle-outline"
+              IconName={item.iconName}
               IconType={TypeIcon.IONICONS}
-              IconSize={22}
+              IconSize={30}
+              IconColor={item.infoColor}
             />
           </View>
+
+          <View
+            style={{
+              width: '70%',
+              justifyContent: 'space-evenly',
+              paddingVertical: '4%',
+            }}
+          >
+            <Text
+              style={{
+                fontFamily: FONTS.Poppins_Bold,
+                fontSize: 13,
+                // width: '70%',
+                color: COLORS.WHITE,
+              }}
+            >
+              {item.titleDescription}
+            </Text>
+
+            <Text
+              style={{
+                fontFamily: FONTS.Poppins_MediumItalic,
+                fontSize: 12,
+                // width: '70%',
+                color: item.infoColor,
+              }}
+            >
+              {item.dateInfo}
+            </Text>
+
+            {/* <TouchableOpacity
+            style={{
+              width: '70%',
+              height: '47%',
+              padding: '3%',
+              backgroundColor: COLORS.BLUE_BUTTON,
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginTop: 15,
+              borderRadius: 20,
+            }}
+          >
+            <Text
+              style={{
+                fontFamily: FONTS.Poppins_Bold,
+                fontSize: 18,
+                color: COLORS.WHITE,
+              }}
+            >
+              Ler QRCode
+            </Text>
+          </TouchableOpacity> */}
+          </View>
+
+          {/* <View
+            style={{
+              width: '10%',
+              justifyContent: 'center',
+              alignItems: 'center',
+              // backgroundColor: COLORS.AMARELOESCURO_APP,
+            }}
+          >
+            <View
+              style={{
+                width: '20%',
+                height: '90%',
+                borderRadius: 20,
+                backgroundColor: item.infoColor,
+                justifyContent: 'space-evenly',
+              }}
+            />
+          </View> */}
         </View>
-      </View>
+      </>
     );
   };
 
@@ -205,226 +257,59 @@ export function NotificationScreen() {
         }}
       >
         {/* header information */}
-        <View style={{ height: 90, flexDirection: 'row' }}>
-          {/* name */}
-          <View style={{ width: '80%' }}>
+        <View
+          style={{
+            // flex: 1,
+            flexDirection: 'row',
+            // backgroundColor: COLORS.CINZACLARO_APP,
+          }}
+        >
+          {/* back button icon */}
+          <View
+            style={{
+              width: '10%',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <VectorIcon
+                IconName="arrow-back-ios"
+                IconType={TypeIcon.MATERIAL_ICONS}
+                IconSize={24}
+                IconColor={COLORS.BLACK}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <View style={{ width: '90%', alignItems: 'center' }}>
             <Text
               style={{
                 fontFamily: FONTS.Poppins_Black_Italic,
                 fontSize: 24,
               }}
             >
-              Hey Rahul
+              Notificações
             </Text>
-
-            <Text
-              style={{
-                fontFamily: FONTS.Poppins_MediumItalic,
-                fontSize: 14,
-              }}
-            >
-              Bora treinar!
-            </Text>
-          </View>
-
-          <View style={{ width: '20%' }}>
-            <Image
-              source={{
-                uri: 'https://www.thesouthafrican.com/wp-content/uploads/2019/02/d6393b36-thispersondoesnotexist-800x529.jpg',
-              }}
-              style={{ width: 50, height: 50, borderRadius: 100 }}
-              resizeMode="cover"
-            />
           </View>
         </View>
 
-        {/* cards container */}
-        <View>
-          {/* ScanQR */}
-          <View
-            style={{
-              height: 150,
-              width: '100%',
-              borderRadius: 20,
-              flexDirection: 'row',
-              padding: '4%',
-              backgroundColor: COLORS.ROXO2_APP,
+        <View
+          style={{
+            flexDirection: 'column',
+          }}
+        >
+          {/* card container */}
+          <FlatList
+            data={notificationData}
+            renderItem={({ item }) => renderNotificationCard({ item })}
+            showsVerticalScrollIndicator={false}
+            keyExtractor={(item, index) => index.toString()}
+            contentContainerStyle={{
+              gap: 10,
+              marginVertical: '5%',
             }}
-          >
-            <View
-              style={{
-                width: '60%',
-                height: 150,
-                justifyContent: 'space-evenly',
-              }}
-            >
-              <Text
-                style={{
-                  fontFamily: FONTS.Poppins_Bold,
-                  fontSize: 18,
-                  color: COLORS.WHITE,
-                }}
-              >
-                Escaneie o QRCode para entrar à academia.
-              </Text>
-
-              <TouchableOpacity
-                style={{
-                  width: '70%',
-                  height: '47%',
-                  padding: '3%',
-                  backgroundColor: COLORS.BLUE_BUTTON,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginTop: 15,
-                  borderRadius: 20,
-                }}
-              >
-                <Text
-                  style={{
-                    fontFamily: FONTS.Poppins_Bold,
-                    // fontSize: 18,
-                    color: COLORS.WHITE,
-                  }}
-                >
-                  Ler QRCode
-                </Text>
-              </TouchableOpacity>
-            </View>
-
-            <View
-              style={{
-                width: '40%',
-                height: 'auto',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Image
-                source={{
-                  uri: 'https://i.imgur.com/tlfeMKB.png',
-                }}
-                style={{ width: 200, height: 200 }}
-              />
-            </View>
-          </View>
-
-          {/* gym features/products */}
-          <View
-            style={{
-              marginTop: '10%',
-            }}
-          >
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              style={{}}
-            >
-              {productCard()}
-              {productCard((bgColor = COLORS.BLUE_BUTTON))}
-            </ScrollView>
-
-            <View
-              style={{
-                width: '100%',
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-              }}
-            >
-              <View
-                style={{
-                  height: 35,
-                  width: 150,
-                  borderRadius: 20,
-                  flexDirection: 'row',
-                  padding: '2%',
-                  margin: '2%',
-                  backgroundColor: COLORS.BLUE_BUTTON,
-                  marginTop: 10,
-                  paddingHorizontal: '5%',
-                  justifyContent: 'center',
-                }}
-              >
-                <View
-                  style={{
-                    width: '100%',
-                    // height: 150,
-                    flexDirection: 'row',
-                    gap: 5,
-                    // justifyContent: 'space-around',
-                    // justifyContent: 'center',
-                  }}
-                >
-                  <Text
-                    style={{
-                      fontFamily: FONTS.Poppins_Bold,
-                      fontSize: 14,
-                      color: COLORS.BLACK,
-                    }}
-                  >
-                    Dia:
-                  </Text>
-
-                  <Text
-                    style={{
-                      fontFamily: FONTS.Poppins_Bold,
-                      fontSize: 14,
-                      color: COLORS.BLACK,
-                    }}
-                  >
-                    {getFormattedDate()}
-                  </Text>
-                </View>
-              </View>
-
-              <View
-                style={{
-                  height: 35,
-                  width: 150,
-                  borderRadius: 20,
-                  flexDirection: 'row',
-                  padding: '2%',
-                  margin: '2%',
-                  backgroundColor: COLORS.BLUE_BUTTON,
-                  marginTop: 10,
-                  paddingHorizontal: '5%',
-                  justifyContent: 'center',
-                }}
-              >
-                <View
-                  style={{
-                    width: '100%',
-                    // height: 150,
-                    flexDirection: 'row',
-                    gap: 5,
-                    justifyContent: 'center',
-                  }}
-                >
-                  <Text
-                    style={{
-                      fontFamily: FONTS.Poppins_Bold,
-                      fontSize: 14,
-                      color: COLORS.BLACK,
-                    }}
-                  >
-                    {getDayAtWeek()}
-                  </Text>
-                </View>
-              </View>
-            </View>
-          </View>
-
-          {/* Info chart */}
-          <View
-            style={
-              {
-                // height: '100%',
-              }
-            }
-          >
-            {BarChartCard()}
-          </View>
+          />
         </View>
       </View>
     </SafeAreaView>

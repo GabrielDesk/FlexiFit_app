@@ -74,9 +74,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.horizonharmony_app"
+    namespace "com.HorizonHarmonyApp"
     defaultConfig {
-        applicationId "com.horizonharmony_app"
+        applicationId "com.HorizonHarmonyApp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

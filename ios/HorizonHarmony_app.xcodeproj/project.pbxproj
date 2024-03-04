@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0088E9E4AE8648E7AF7FE1B6 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C590A3A581624FA19F29FA41 /* Poppins-ThinItalic.ttf */; };
-		00E356F31AD99517003FC87E /* HorizonHarmony_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* HorizonHarmony_appTests.m */; };
+		00E356F31AD99517003FC87E /* HorizonHarmonyappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* HorizonHarmonyappTests.m */; };
 		0C1263A699E248FA9D57547B /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 723350BE244F40C7892AE5DF /* Poppins-Black.ttf */; };
 		0C7BA23D1AE3470A98E1CDF7 /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF62834DD1FD4FFEBE52C7D4 /* Poppins-BlackItalic.ttf */; };
-		0C80B921A6F3F58F76C31292 /* libPods-HorizonHarmony_app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-HorizonHarmony_app.a */; };
+		0C80B921A6F3F58F76C31292 /* libPods-HorizonHarmonyapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-HorizonHarmonyapp.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -19,7 +19,7 @@
 		27A3AB36F5E24C20B5531CB0 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBEB6F661EDB40879DF6A738 /* Poppins-Medium.ttf */; };
 		2D83A0FE0A394323841989BC /* Poppins-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3067CCEE89FB4438BB33DFC5 /* Poppins-BoldItalic.ttf */; };
 		6DAD79AD3D0E44E788625AA5 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42794E0107234E609D68594C /* Poppins-ExtraLight.ttf */; };
-		7699B88040F8A987B510C191 /* libPods-HorizonHarmony_app-HorizonHarmony_appTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-HorizonHarmony_app-HorizonHarmony_appTests.a */; };
+		7699B88040F8A987B510C191 /* libPods-HorizonHarmonyapp-HorizonHarmonyappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-HorizonHarmonyapp-HorizonHarmonyappTests.a */; };
 		7C36F16DE7104189AE6DC74B /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCC4F200CA7640A5A6BDBF02 /* Poppins-Italic.ttf */; };
 		7C65A6A3A3E04C84999857C7 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6348A487DEB94810BEE5DC50 /* Poppins-ExtraLightItalic.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -41,23 +41,23 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = HorizonHarmony_app;
+			remoteInfo = "HorizonHarmonyapp";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* HorizonHarmony_appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HorizonHarmony_appTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* HorizonHarmonyappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HorizonHarmonyappTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* HorizonHarmony_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HorizonHarmony_appTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* HorizonHarmony_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HorizonHarmony_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = HorizonHarmony_app/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = HorizonHarmony_app/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = HorizonHarmony_app/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = HorizonHarmony_app/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = HorizonHarmony_app/main.m; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-HorizonHarmony_app-HorizonHarmony_appTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HorizonHarmony_app-HorizonHarmony_appTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F21AD99517003FC87E /* HorizonHarmonyappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HorizonHarmonyappTests.m"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* HorizonHarmonyapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HorizonHarmonyapp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "HorizonHarmonyapp/AppDelegate.h"; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = "HorizonHarmonyapp/AppDelegate.mm"; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "HorizonHarmonyapp/Images.xcassets"; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "HorizonHarmonyapp/Info.plist"; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "HorizonHarmonyapp/main.m"; sourceTree = "<group>"; };
+		19F6CBCC0A4E27FBF8BF4A61 /* libPods-HorizonHarmonyapp-HorizonHarmonyappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HorizonHarmonyapp-HorizonHarmonyappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3067CCEE89FB4438BB33DFC5 /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BoldItalic.ttf"; path = "../assets/fonts/Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
-		3B4392A12AC88292D35C810B /* Pods-HorizonHarmony_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HorizonHarmony_app.debug.xcconfig"; path = "Target Support Files/Pods-HorizonHarmony_app/Pods-HorizonHarmony_app.debug.xcconfig"; sourceTree = "<group>"; };
+		3B4392A12AC88292D35C810B /* Pods-HorizonHarmonyapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HorizonHarmonyapp.debug.xcconfig"; path = "Target Support Files/Pods-HorizonHarmonyapp/Pods-HorizonHarmonyapp.debug.xcconfig"; sourceTree = "<group>"; };
 		42794E0107234E609D68594C /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLight.ttf"; path = "../assets/fonts/Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		54FA484C2B5D5B8E003DA59F /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
 		54FA484D2B5D5B8E003DA59F /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Solid.ttf; sourceTree = "<group>"; };
@@ -75,17 +75,17 @@
 		54FA48592B5D5B90003DA59F /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		54FA485A2B5D5B91003DA59F /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
 		54FA485B2B5D5B91003DA59F /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-HorizonHarmony_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HorizonHarmony_app.release.xcconfig"; path = "Target Support Files/Pods-HorizonHarmony_app/Pods-HorizonHarmony_app.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-HorizonHarmony_app-HorizonHarmony_appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HorizonHarmony_app-HorizonHarmony_appTests.debug.xcconfig"; path = "Target Support Files/Pods-HorizonHarmony_app-HorizonHarmony_appTests/Pods-HorizonHarmony_app-HorizonHarmony_appTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-HorizonHarmony_app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HorizonHarmony_app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5709B34CF0A7D63546082F79 /* Pods-HorizonHarmonyapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HorizonHarmonyapp.release.xcconfig"; path = "Target Support Files/Pods-HorizonHarmonyapp/Pods-HorizonHarmonyapp.release.xcconfig"; sourceTree = "<group>"; };
+		5B7EB9410499542E8C5724F5 /* Pods-HorizonHarmonyapp-HorizonHarmonyappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HorizonHarmonyapp-HorizonHarmonyappTests.debug.xcconfig"; path = "Target Support Files/Pods-HorizonHarmonyapp-HorizonHarmonyappTests/Pods-HorizonHarmonyapp-HorizonHarmonyappTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5DCACB8F33CDC322A6C60F78 /* libPods-HorizonHarmonyapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HorizonHarmonyapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6348A487DEB94810BEE5DC50 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLightItalic.ttf"; path = "../assets/fonts/Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		6ABC9CB32F9247DDBC4F3DC4 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
 		723350BE244F40C7892AE5DF /* Poppins-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Black.ttf"; path = "../assets/fonts/Poppins-Black.ttf"; sourceTree = "<group>"; };
 		72DDF8CF8EF5423A857732DB /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-MediumItalic.ttf"; path = "../assets/fonts/Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
 		776856692CC343E3A2085AD3 /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBoldItalic.ttf"; path = "../assets/fonts/Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = HorizonHarmony_app/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "HorizonHarmonyapp/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		8750E9E6D9C0418A86DD9BD3 /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBoldItalic.ttf"; path = "../assets/fonts/Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-HorizonHarmony_app-HorizonHarmony_appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HorizonHarmony_app-HorizonHarmony_appTests.release.xcconfig"; path = "Target Support Files/Pods-HorizonHarmony_app-HorizonHarmony_appTests/Pods-HorizonHarmony_app-HorizonHarmony_appTests.release.xcconfig"; sourceTree = "<group>"; };
+		89C6BE57DB24E9ADA2F236DE /* Pods-HorizonHarmonyapp-HorizonHarmonyappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HorizonHarmonyapp-HorizonHarmonyappTests.release.xcconfig"; path = "Target Support Files/Pods-HorizonHarmonyapp-HorizonHarmonyappTests/Pods-HorizonHarmonyapp-HorizonHarmonyappTests.release.xcconfig"; sourceTree = "<group>"; };
 		8F214BDB7F2E4CB5A2EF39B0 /* OFL.txt */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = OFL.txt; path = ../assets/fonts/OFL.txt; sourceTree = "<group>"; };
 		A71A6457D7994A8893B9C7B7 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		BCC4F200CA7640A5A6BDBF02 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Italic.ttf"; path = "../assets/fonts/Poppins-Italic.ttf"; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-HorizonHarmony_app-HorizonHarmony_appTests.a in Frameworks */,
+				7699B88040F8A987B510C191 /* libPods-HorizonHarmonyapp-HorizonHarmonyappTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,20 +113,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-HorizonHarmony_app.a in Frameworks */,
+				0C80B921A6F3F58F76C31292 /* libPods-HorizonHarmonyapp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* HorizonHarmony_appTests */ = {
+		00E356EF1AD99517003FC87E /* HorizonHarmonyappTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* HorizonHarmony_appTests.m */,
+				00E356F21AD99517003FC87E /* HorizonHarmonyappTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = HorizonHarmony_appTests;
+			path = "HorizonHarmonyappTests";
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -164,7 +164,7 @@
 			path = "";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* HorizonHarmony_app */ = {
+		13B07FAE1A68108700A75B9A /* HorizonHarmonyapp */ = {
 			isa = PBXGroup;
 			children = (
 				54FA484B2B5D5AAE003DA59F /* Fonts */,
@@ -175,15 +175,15 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = HorizonHarmony_app;
+			name = "HorizonHarmonyapp";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-HorizonHarmony_app.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-HorizonHarmony_app-HorizonHarmony_appTests.a */,
+				5DCACB8F33CDC322A6C60F78 /* libPods-HorizonHarmonyapp.a */,
+				19F6CBCC0A4E27FBF8BF4A61 /* libPods-HorizonHarmonyapp-HorizonHarmonyappTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -221,9 +221,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* HorizonHarmony_app */,
+				13B07FAE1A68108700A75B9A /* HorizonHarmonyapp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* HorizonHarmony_appTests */,
+				00E356EF1AD99517003FC87E /* HorizonHarmonyappTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -237,8 +237,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* HorizonHarmony_app.app */,
-				00E356EE1AD99517003FC87E /* HorizonHarmony_appTests.xctest */,
+				13B07F961A680F5B00A75B9A /* HorizonHarmonyapp.app */,
+				00E356EE1AD99517003FC87E /* HorizonHarmonyappTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,10 +246,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-HorizonHarmony_app.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-HorizonHarmony_app.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-HorizonHarmony_app-HorizonHarmony_appTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-HorizonHarmony_app-HorizonHarmony_appTests.release.xcconfig */,
+				3B4392A12AC88292D35C810B /* Pods-HorizonHarmonyapp.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-HorizonHarmonyapp.release.xcconfig */,
+				5B7EB9410499542E8C5724F5 /* Pods-HorizonHarmonyapp-HorizonHarmonyappTests.debug.xcconfig */,
+				89C6BE57DB24E9ADA2F236DE /* Pods-HorizonHarmonyapp-HorizonHarmonyappTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -257,9 +257,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* HorizonHarmony_appTests */ = {
+		00E356ED1AD99517003FC87E /* HorizonHarmonyappTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "HorizonHarmony_appTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "HorizonHarmonyappTests" */;
 			buildPhases = (
 				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -273,14 +273,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = HorizonHarmony_appTests;
-			productName = HorizonHarmony_appTests;
-			productReference = 00E356EE1AD99517003FC87E /* HorizonHarmony_appTests.xctest */;
+			name = HorizonHarmonyappTests;
+			productName = HorizonHarmonyappTests;
+			productReference = 00E356EE1AD99517003FC87E /* HorizonHarmonyappTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* HorizonHarmony_app */ = {
+		13B07F861A680F5B00A75B9A /* HorizonHarmonyapp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "HorizonHarmony_app" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "HorizonHarmonyapp" */;
 			buildPhases = (
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -294,9 +294,9 @@
 			);
 			dependencies = (
 			);
-			name = HorizonHarmony_app;
-			productName = HorizonHarmony_app;
-			productReference = 13B07F961A680F5B00A75B9A /* HorizonHarmony_app.app */;
+			name = "HorizonHarmonyapp";
+			productName = "HorizonHarmonyapp";
+			productReference = 13B07F961A680F5B00A75B9A /* HorizonHarmonyapp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -316,7 +316,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "HorizonHarmony_app" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "HorizonHarmonyapp" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -329,8 +329,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* HorizonHarmony_app */,
-				00E356ED1AD99517003FC87E /* HorizonHarmony_appTests */,
+				13B07F861A680F5B00A75B9A /* HorizonHarmonyapp */,
+				00E356ED1AD99517003FC87E /* HorizonHarmonyappTests */,
 			);
 		};
 /* End PBXProject section */
@@ -396,15 +396,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmony_app/Pods-HorizonHarmony_app-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmonyapp/Pods-HorizonHarmonyapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmony_app/Pods-HorizonHarmony_app-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmonyapp/Pods-HorizonHarmonyapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmony_app/Pods-HorizonHarmony_app-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmonyapp/Pods-HorizonHarmonyapp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -422,7 +422,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HorizonHarmony_app-HorizonHarmony_appTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-HorizonHarmonyapp-HorizonHarmonyappTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -444,7 +444,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HorizonHarmony_app-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-HorizonHarmonyapp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -457,15 +457,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmony_app-HorizonHarmony_appTests/Pods-HorizonHarmony_app-HorizonHarmony_appTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmonyapp-HorizonHarmonyappTests/Pods-HorizonHarmonyapp-HorizonHarmonyappTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmony_app-HorizonHarmony_appTests/Pods-HorizonHarmony_app-HorizonHarmony_appTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmonyapp-HorizonHarmonyappTests/Pods-HorizonHarmonyapp-HorizonHarmonyappTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmony_app-HorizonHarmony_appTests/Pods-HorizonHarmony_app-HorizonHarmony_appTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmonyapp-HorizonHarmonyappTests/Pods-HorizonHarmonyapp-HorizonHarmonyappTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
@@ -474,15 +474,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmony_app/Pods-HorizonHarmony_app-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmonyapp/Pods-HorizonHarmonyapp-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmony_app/Pods-HorizonHarmony_app-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmonyapp/Pods-HorizonHarmonyapp-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmony_app/Pods-HorizonHarmony_app-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmonyapp/Pods-HorizonHarmonyapp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
@@ -491,15 +491,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmony_app-HorizonHarmony_appTests/Pods-HorizonHarmony_app-HorizonHarmony_appTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmonyapp-HorizonHarmonyappTests/Pods-HorizonHarmonyapp-HorizonHarmonyappTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmony_app-HorizonHarmony_appTests/Pods-HorizonHarmony_app-HorizonHarmony_appTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmonyapp-HorizonHarmonyappTests/Pods-HorizonHarmonyapp-HorizonHarmonyappTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmony_app-HorizonHarmony_appTests/Pods-HorizonHarmony_app-HorizonHarmony_appTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HorizonHarmonyapp-HorizonHarmonyappTests/Pods-HorizonHarmonyapp-HorizonHarmonyappTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -509,7 +509,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* HorizonHarmony_appTests.m in Sources */,
+				00E356F31AD99517003FC87E /* HorizonHarmonyappTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,7 +527,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* HorizonHarmony_app */;
+			target = 13B07F861A680F5B00A75B9A /* HorizonHarmonyapp */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -535,14 +535,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-HorizonHarmony_app-HorizonHarmony_appTests.debug.xcconfig */;
+			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-HorizonHarmonyapp-HorizonHarmonyappTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = HorizonHarmony_appTests/Info.plist;
+				INFOPLIST_FILE = "HorizonHarmonyappTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -554,19 +554,19 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HorizonHarmonyApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HorizonHarmony_app.app/HorizonHarmony_app";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HorizonHarmonyapp.app/HorizonHarmonyapp";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-HorizonHarmony_app-HorizonHarmony_appTests.release.xcconfig */;
+			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-HorizonHarmonyapp-HorizonHarmonyappTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = HorizonHarmony_appTests/Info.plist;
+				INFOPLIST_FILE = "HorizonHarmonyappTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -578,21 +578,22 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HorizonHarmonyApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HorizonHarmony_app.app/HorizonHarmony_app";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HorizonHarmonyapp.app/HorizonHarmonyapp";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-HorizonHarmony_app.debug.xcconfig */;
+			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-HorizonHarmonyapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = HorizonHarmony_app/Info.plist;
+				INFOPLIST_FILE = "HorizonHarmonyapp/Info.plist";
+             INFOPLIST_KEY_CFBundleDisplayName = "FitFlex";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -603,8 +604,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = HorizonHarmony_app;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HorizonHarmonyApp";
+				PRODUCT_NAME = "HorizonHarmonyapp";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -613,12 +614,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-HorizonHarmony_app.release.xcconfig */;
+			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-HorizonHarmonyapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = HorizonHarmony_app/Info.plist;
+				INFOPLIST_FILE = "HorizonHarmonyapp/Info.plist";
+             INFOPLIST_KEY_CFBundleDisplayName = "FitFlex";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -629,8 +631,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = HorizonHarmony_app;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HorizonHarmonyApp";
+				PRODUCT_NAME = "HorizonHarmonyapp";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -792,7 +794,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "HorizonHarmony_appTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "HorizonHarmonyappTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -801,7 +803,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "HorizonHarmony_app" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "HorizonHarmonyapp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -810,7 +812,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "HorizonHarmony_app" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "HorizonHarmonyapp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

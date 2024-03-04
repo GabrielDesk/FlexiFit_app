@@ -1,10 +1,10 @@
 {
-  "name": "HorizonHarmony_app",
+  "name": "fitflex",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "android": "cd android && ./gradlew clean && cd .. && react-native run-android",
-    "ios": "react-native run-ios --scheme HorizonHarmony_app --simulator='iPhone 15 Pro'",
+    "ios": "react-native run-ios --scheme fitflex --simulator='iPhone 15 Pro'",
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
